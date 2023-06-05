@@ -11,7 +11,7 @@ let bot = new TelegramBot(token, { polling: true });
 app.all('/', (req, res) => {
     console.log("Just got a request!");
 
-    console.log(req.body);
+    // console.log(req.body);
     
     axios.get('https://api.telegram.org/bot5971105930:AAERdNIZQvhD8d1rji4maMNyZBllU1yCjwg/sendMessage?chat_id=932569440&text=from-nodejs');
 
@@ -22,7 +22,7 @@ app.all('/', (req, res) => {
     //     // file written successfully
     // });
 
-    axios.get('https://exclusive.luckycloverprizes.com/test/test.php?adv1={adv1}&t={transaction_id}');
+    // axios.get('https://exclusive.luckycloverprizes.com/test/test.php?adv1={adv1}&t={transaction_id}');
 
 
     res.send('Yo you did this!');
