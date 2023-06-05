@@ -12,6 +12,8 @@ app.all('/', (req, res) => {
     console.log("Just got a request!");
 
     console.log(req.body);
+    
+    axios.get('https://api.telegram.org/bot5971105930:AAERdNIZQvhD8d1rji4maMNyZBllU1yCjwg/sendMessage?chat_id=932569440&text=from-nodejs')
 
     fs.appendFile('./logs/test.txt', JSON.stringify(req.body), err => {
         if (err) {
@@ -21,7 +23,6 @@ app.all('/', (req, res) => {
     });
 
     axios.get('https://exclusive.luckycloverprizes.com/test/test.php?adv1={adv1}&t={transaction_id}');
-    axios.get('https://api.telegram.org/bot5971105930:AAERdNIZQvhD8d1rji4maMNyZBllU1yCjwg/sendMessage?chat_id=932569440&text=from-nodejs')
 
     // Matches "/echo [whatever]"
     // bot.onText(/\/echo(.+)/, (msg, match) => {
@@ -46,22 +47,22 @@ app.all('/', (req, res) => {
 
 
 // Matches "/echo [whatever]"
-bot.onText(/\/echo(.+)/, (msg, match) => {
-    let chatId = msg.chat.id;
+// bot.onText(/\/echo(.+)/, (msg, match) => {
+//     let chatId = msg.chat.id;
  
-    console.log(msg)
-    let resp = match[1];
+//     console.log(msg)
+//     let resp = match[1];
 
-    bot.sendMessage(chatId, resp);
-});
+//     bot.sendMessage(chatId, resp);
+// });
 
-bot.on('message', (msg, match) => {
-    let chatId = msg.chat.id;
+// bot.on('message', (msg, match) => {
+//     let chatId = msg.chat.id;
  
-    console.log(msg)
-    let resp = match[1];
+//     console.log(msg)
+//     let resp = match[1];
 
-    bot.sendMessage(chatId, 'Received your message');
-});
+//     bot.sendMessage(chatId, 'Received your message');
+// });
 
 app.listen(process.env.PORT || 3000)
