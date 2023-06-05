@@ -8,7 +8,7 @@ app.use(express.json());
 const token = '5971105930:AAERdNIZQvhD8d1rji4maMNyZBllU1yCjwg';
 let bot = new TelegramBot(token, { polling: true });
 
-app.all('/', (req, res) => {
+app.all('/', async (req, res) => {
     console.log("Just got a request!");
 
     console.log(req.body.current_state);
@@ -28,11 +28,20 @@ app.all('/', (req, res) => {
             img_src = '🟢';
         }
         const tg_msg = `[${current_state} ${img_src}] ${check_name} @ShahrukhCC`;
-        request(encodeURI(`https://api.telegram.org/bot5971105930:AAERdNIZQvhD8d1rji4maMNyZBllU1yCjwg/sendMessage?chat_id=-1001849542707&text=${tg_msg}&parse_mode=html`), function (error, response, body) {
-            if (!error && response.statusCode === 200) {
-                console.log(body) // Print the google web page.
-            }
-        });
+        // request(encodeURI(`https://api.telegram.org/bot5971105930:AAERdNIZQvhD8d1rji4maMNyZBllU1yCjwg/sendMessage?chat_id=-1001849542707&text=${tg_msg}&parse_mode=html`), function (error, response, body) {
+        //     if (!error && response.statusCode === 200) {
+        //         console.log(body) // Print the google web page.
+        //     }
+        // });
+
+        let response ='';
+
+        try {
+            response = await request(encodeURI(`https://api.telegram.org/bot5971105930:AAERdNIZQvhD8d1rji4maMNyZBllU1yCjwg/sendMessage?chat_id=-1001849542707&text=${tg_msg}&parse_mode=html`))  ;
+          } catch (err) {
+            console.log(err);
+          }
+
     // }
 
     res.send('Yo you did this!');
