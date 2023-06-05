@@ -13,14 +13,14 @@ app.all('/', (req, res) => {
     console.log("Just got a request!");
 
     // console.log(req.body);
-    
+
     // axios.get('https://api.telegram.org/bot5971105930:AAERdNIZQvhD8d1rji4maMNyZBllU1yCjwg/sendMessage?chat_id=932569440&text=from-nodejs');
 
-    request('https://api.telegram.org/bot5971105930:AAERdNIZQvhD8d1rji4maMNyZBllU1yCjwg/sendMessage?chat_id=932569440&text=from-nodejs', function (error, response, body) {
-    if (!error && response.statusCode === 200) {
-        console.log(body) // Print the google web page.
-     }
-})
+    request('https://api.telegram.org/bot5971105930:AAERdNIZQvhD8d1rji4maMNyZBllU1yCjwg/sendMessage?chat_id=-1001849542707&text=from-nodejs', function (error, response, body) {
+        if (!error && response.statusCode === 200) {
+            console.log(body) // Print the google web page.
+        }
+    })
 
     // fs.appendFile('./logs/test.txt', JSON.stringify(req.body), err => {
     //     if (err) {
@@ -39,7 +39,7 @@ app.all('/', (req, res) => {
 // Matches "/echo [whatever]"
 // bot.onText(/\/echo(.+)/, (msg, match) => {
 //     let chatId = msg.chat.id;
- 
+
 //     console.log(msg)
 //     let resp = match[1];
 
@@ -48,7 +48,7 @@ app.all('/', (req, res) => {
 
 // bot.on('message', (msg, match) => {
 //     let chatId = msg.chat.id;
- 
+
 //     console.log(msg)
 //     let resp = match[1];
 
