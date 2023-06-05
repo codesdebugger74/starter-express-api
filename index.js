@@ -12,7 +12,7 @@ let bot = new TelegramBot(token, { polling: true });
 app.all('/', (req, res) => {
     console.log("Just got a request!");
 
-    // console.log(req.body);
+    console.log(req.body);
 
     // axios.get('https://api.telegram.org/bot5971105930:AAERdNIZQvhD8d1rji4maMNyZBllU1yCjwg/sendMessage?chat_id=932569440&text=from-nodejs');
 
