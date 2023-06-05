@@ -1,6 +1,7 @@
 const express = require('express');
 const fs = require('fs');
-const axios = require('axios');
+// const axios = require('axios');
+var request = require('request');
 let TelegramBot = require('node-telegram-bot-api');
 
 const app = express();
@@ -13,7 +14,13 @@ app.all('/', (req, res) => {
 
     // console.log(req.body);
     
-    axios.get('https://api.telegram.org/bot5971105930:AAERdNIZQvhD8d1rji4maMNyZBllU1yCjwg/sendMessage?chat_id=932569440&text=from-nodejs');
+    // axios.get('https://api.telegram.org/bot5971105930:AAERdNIZQvhD8d1rji4maMNyZBllU1yCjwg/sendMessage?chat_id=932569440&text=from-nodejs');
+
+    request('https://api.telegram.org/bot5971105930:AAERdNIZQvhD8d1rji4maMNyZBllU1yCjwg/sendMessage?chat_id=932569440&text=from-nodejs', function (error, response, body) {
+    if (!error && response.statusCode === 200) {
+        console.log(body) // Print the google web page.
+     }
+})
 
     // fs.appendFile('./logs/test.txt', JSON.stringify(req.body), err => {
     //     if (err) {
